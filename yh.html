@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+         $(".submit").click(function(){
+             var val= $(".t1").text();
+             if(val.length===0)
+             {
+                 $(".t2").slideDown();
+             }
+            
+         });
+        });
+    </script>
+    <input type="text" class="t1">
+    <div class="t2" style="display: none;">không có thông tin</div>
+    <button class="submit">Gửi</button>
+</body>
+</html>

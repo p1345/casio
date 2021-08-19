@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                var val=$(this).val();
+                switch(val)
+                {
+                    case "AC": $('#screen').text('');
+                    break;
+
+                    case "+/-": var tmp=$('#screen').text();
+                    tmp=parseFloat(tmp);
+                    tmp=-tmp;
+                    $("#screen").text(tmp);
+                    break;
+
+                    case "%": var tmp=$('#screen').text();
+                    tmp=parseFloat(tmp);
+                    tmp/=100;
+                    $("#screen").text(tmp);
+                    break;
+
+                    case "=": var tmp=$('#screen').text();
+                    var x;
+                    tmp= 'x =' +tmp;
+                    eval(tmp)
+                    $("#screen").text(x);
+                    break;
+
+                    
+                    default:
+                        var tmp= $('#screen').text();
+                        tmp= tmp+val;
+                        $("#screen").text(tmp);
+                        break;
+                }
+            });
+        });
+    </script>
+    <style>
+        
+        table{
+            border: 1px solid black;
+            padding: 10px;
+            width: 450px;
+            background: radial-gradient(red, blue);
+            border-radius:20px;
+        }
+        button{
+            width: 100%;
+            font-weight: bold;
+            font-size: 30pt;
+            border-radius: 20px;
+            outline: none;
+        }
+        #screen{
+            width: 100%;
+            font-weight: bold;
+            font-size: 50pt;
+            text-align: right;
+            margin: 10px;
+            background-color: white;
+            height: 60px;
+        }
+        td{
+            width: 25%;
+            padding: 5px;
+        }
+    </style>
+    <table>
+        <tr>
+            <td colspan="4">
+                <p id="screen">123</p>
+            </td>
+        </tr>
+        <tr>
+            <td><button value="AC" class="operator">AC</button></td>
+           <td><button value="+/-" class="operator">+/-</button></td>
+           <td><button value="%" class="operator">%</button></td>
+           <td><button value="/" class="operator">/</button></td>
+        </tr>
+        <tr>
+            <td><button value="7" class="number">7</button></td>
+            <td><button value="8" class="number">8</button></td>
+            <td><button value="9" class="number">9</button></td>
+            <td><button value="*" class="number">*</button></td>
+        </tr>
+        <tr>
+            <td><button value="4" class="number">4</button></td>
+            <td><button value="5" class="number">5</button></td>
+            <td><button value="6" class="number">6</button></td>
+            <td><button value="-" class="number">-</button></td>
+        </tr>
+        <tr>
+            <td><button value="1" class="number">1</button></td>
+            <td><button value="2" class="number">2</button></td>
+            <td><button value="3" class="number">3</button></td>
+            <td><button value="+" class="number">+</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button value="0">0</button></td>
+            <td><button value="," class="operator">,</button></td>
+           <td><button value="=" class="operator">=</button></td>
+        </tr>
+    </table>
+</body>
+</html>
